@@ -87,6 +87,8 @@ const AddProductPage = () => {
   return (
     <div className="flex justify-center">
       <h1>Add New Product</h1>
+      <AddProductCategory></AddProductCategory>
+      <AddProductCompany></AddProductCompany>
       <form onSubmit={handleSubmit} encType="multipart/form-data">
         <div>
           <label>Title</label>
