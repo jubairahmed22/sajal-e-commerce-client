@@ -1,0 +1,42 @@
+/* Basic styles for the sidebar */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: -220px; /* Hide the sidebar by default */
+    width: 220px;
+    height: 100%;
+    background-color: #333;
+    color: white;
+    transition: left 0.3s ease; /* Smooth transition */
+    z-index: 1000; /* Ensure it's above other elements */
+  }
+  
+  .sidebar.open {
+    left: 0; /* Show the sidebar when open */
+  }
+  
+  /* Overlay styles */
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(5px); /* Apply blur effect */
+    transition: opacity 0.3s ease; /* Smooth transition */
+    opacity: 0;
+    pointer-events: none; /* Make it non-interactive by default */
+    z-index: 999; /* Ensure it's below the sidebar */
+  }
+  
+  .overlay.active {
+    opacity: 1;
+    pointer-events: all; /* Make it interactive when active */
+  }
+
+  .my-element {
+    max-width: 100%; /* Ensure it doesn't exceed the viewport width */
+    transition: width 0.3s ease; /* Smooth transition over 0.3 seconds */
+  }
+  
