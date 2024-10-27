@@ -16,21 +16,24 @@ const DashboardLayout = () => {
     })
   }, [user])
   return (
-    <div className='relative min-h-screen md:flex'>
+    <div>
       {loading ? (
-        ''
+        ""
       ) : (
         <>
+          <div className='flex flex-row '>
+          <div className='lg:w-[300px] md:w-[300px] sm:w-[1px] sticky top-0'>
           <Sidebar role={role} />
-          <div className='flex-1  md:ml-64'>
-            <div className='p-5'>
-              <Outlet />
-            </div>
           </div>
+          <div className='w-full '>
+          <Outlet />
+          </div>
+          </div> 
+        
         </>
       )}
     </div>
-  )
+  );
 }
 
 export default DashboardLayout

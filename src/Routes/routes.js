@@ -28,6 +28,7 @@ import MyProducts from '../Components/Dashboard/AdminAllPage/MyProducts/MyProduc
 import AddProducts from '../Components/Dashboard/AdminAllPage/AddProducts/AddProducts'
 import Orders from '../Components/Dashboard/AdminAllPage/Orders/Orders'
 import AllUsersAdmin from '../Components/Dashboard/AdminAllPage/AllUsersAdmin/AllUsersAdmin'
+import ElectricalCart from '../Pages/Cart/ElectricalCart'
 
 const router = createBrowserRouter([
   {
@@ -49,7 +50,7 @@ const router = createBrowserRouter([
       },
       {
         path: '/cart',
-        element: <PrivateRoute><Cart /></PrivateRoute>,
+        element: <PrivateRoute><ElectricalCart /></PrivateRoute>,
       },
      
       {

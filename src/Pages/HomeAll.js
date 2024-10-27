@@ -1,13 +1,16 @@
-import React from 'react';
-import AddProductHome from './AddProductHome';
+import React from "react";
+import AddProductHome from "./AddProductHome";
+import ElectricalHero from "./ElectricalHome/ElectricalHero";
+import ElectricalAllProducts from "./ElectricalHome/ElectricalAllProducts";
 
 
 const HomeAll = () => {
-    return (
-        <div>
-              <AddProductHome></AddProductHome>
-        </div>
-    );
+  return (
+    <div>
+        <ElectricalHero></ElectricalHero>
+        <ElectricalAllProducts></ElectricalAllProducts>
+    </div>
+  );
 };
 
 export default HomeAll;

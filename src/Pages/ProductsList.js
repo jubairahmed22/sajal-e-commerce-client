@@ -47,7 +47,9 @@ const ProductsList = () => {
   // Add to Cart functionality
   const addToCart = (product) => {
     const existingCart = JSON.parse(localStorage.getItem("cart")) || [];
-    const productIndex = existingCart.findIndex((item) => item._id === product._id);
+    const productIndex = existingCart.findIndex(
+      (item) => item._id === product._id
+    );
 
     let updatedCart;
     if (productIndex > -1) {
@@ -67,7 +69,9 @@ const ProductsList = () => {
 
   // Remove from Cart functionality
   const removeFromCart = (productToRemove) => {
-    const updatedCart = cart.filter((product) => product._id !== productToRemove._id); // Remove selected product
+    const updatedCart = cart.filter(
+      (product) => product._id !== productToRemove._id
+    ); // Remove selected product
     localStorage.setItem("cart", JSON.stringify(updatedCart)); // Save updated cart in localStorage
     setCart(updatedCart); // Update cart state
   };
@@ -110,9 +114,14 @@ const ProductsList = () => {
         ) : (
           <ul>
             {cart.map((item) => (
-              <li key={item._id} className="mb-2 flex justify-between items-center">
+              <li
+                key={item._id}
+                className="mb-2 flex justify-between items-center"
+              >
                 <span>{item.title}</span>
-                <span>{item.price} x {item.quantity} = {item.price * item.quantity}</span>
+                <span>
+                  {item.price} x {item.quantity} = {item.price * item.quantity}
+                </span>
                 <div className="flex items-center">
                   <button
                     className="bg-gray-300 px-2"
@@ -141,7 +150,9 @@ const ProductsList = () => {
         {/* Display total price at the bottom */}
         {cart.length > 0 && (
           <div className="mt-4">
-            <h3 className="text-lg font-bold">Total Price: {calculateTotalPrice()}</h3>
+            <h3 className="text-lg font-bold">
+              Total Price: {calculateTotalPrice()}
+            </h3>
           </div>
         )}
       </div>
@@ -151,8 +162,13 @@ const ProductsList = () => {
         <h1>Products</h1>
         <div className="grid grid-cols-3 gap-5 w-[1000px] mx-auto">
           {products.map((product) => (
-            <div className="w-full h-56 border-2 border-gray-400" key={product._id}>
-              <Link to={`/product-details/${product._id}`}>{product.title}</Link>
+            <div
+              className="w-full h-56 border-2 border-gray-400"
+              key={product._id}
+            >
+              <Link to={`/product-details/${product._id}`}>
+                {product.title}
+              </Link>
               <h1>{product.price}</h1>
               <button
                 className="bg-blue-500 text-white px-4 py-2 mt-2"
@@ -170,7 +186,10 @@ const ProductsList = () => {
           <span>
             Page {currentPage} of {totalPages}
           </span>
-          <button onClick={handleNextPage} disabled={currentPage === totalPages}>
+          <button
+            onClick={handleNextPage}
+            disabled={currentPage === totalPages}
+          >
             Next
           </button>
         </div>

@@ -19,17 +19,20 @@ const AddProductCompany = () => {
     };
 
     return (
-        <div>
-            <h1>Add a New company</h1>
+        <div className='flex flex-col'>
+            <h1 className='text-md font-roboto text-black'>Add a New company</h1>
             <form onSubmit={handleSubmit}>
                 <input 
                     type="text" 
                     value={company} 
+                    className='bg-white border-2 border-black rounded w-56 h-10 px-2 mt-2 font-roboto'
                     onChange={(e) => setCompany(e.target.value)} 
                     placeholder="Enter company" 
                     required 
                 />
-                <button type="submit">Add company</button>
+                <button 
+                className='bg-gray-700 rounded text-white py-2 px-4 ml-4'
+                type="submit">Add company</button>
             </form>
             {message && <p>{message}</p>}
         </div>

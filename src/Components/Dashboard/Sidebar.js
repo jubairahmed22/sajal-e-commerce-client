@@ -24,7 +24,7 @@ const Sidebar = ({ role, loading }) => {
   return (
     <>
       {/* Small Screen Navbar */}
-      <div className="bg-white shadow-sm border-b border-gray-200 flex justify-between ">
+      {/* <div className="bg-white shadow-sm border-b border-gray-200 flex justify-between ">
         <div>
           <div className="block cursor-pointer p-4 font-bold">
             <Link to="/">AirCnC</Link>
@@ -33,7 +33,7 @@ const Sidebar = ({ role, loading }) => {
         <button className="text-black lg:hidden" onClick={toggleSidebar}>
           open modal
         </button>
-      </div>
+      </div> */}
       {/* Sidebar */}
       <div className={`sidebar ${isSidebarOpen ? "open" : ""}`}>
         <div className="flex justify-center gap-5 items-start flex-col px-5 py-10">
@@ -44,8 +44,8 @@ const Sidebar = ({ role, loading }) => {
         className={`overlay ${isSidebarOpen ? "active" : ""}`}
         onClick={toggleSidebar}
       ></div>
-      <div className="z-10 border-r border-gray-200 shadow-sm sm:hidden md:fixed flex flex-col justify-between overflow-x-hidden bg-white w-64 space-y-6 px-2 py-4 absolute inset-y-0 left-0 transform">
-        <div>
+      <div className="z-10 sticky top-0 h-full  border-r border-gray-200 shadow-sm sm:hidden md:fixed flex flex-col justify-between overflow-x-hidden bg-white w-64 space-y-6 px-2 py-4 inset-y-0 left-0 transform">
+        <div className=" ">
           {/* Branding & Profile Info */}
           <div>
             <h2 className="text-3xl cursor-pointer font-semibold text-center text-gray-800 ">
