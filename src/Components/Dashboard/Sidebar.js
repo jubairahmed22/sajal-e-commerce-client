@@ -68,7 +68,7 @@ const Sidebar = ({ role, loading }) => {
                 </h4>
               </Link> */}
               <Link to="/dashboard">
-                <p className="mx-2 mt-1  text-sm font-medium text-gray-600  hover:underline">
+                <p className="mx-2 mt-1 text-center text-sm font-medium text-gray-600  hover:underline">
                   Admin Email: <br></br> {user?.email}
                 </p>
               </Link>
