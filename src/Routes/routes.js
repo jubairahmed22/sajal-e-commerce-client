@@ -29,6 +29,9 @@ import AddProducts from '../Components/Dashboard/AdminAllPage/AddProducts/AddPro
 import Orders from '../Components/Dashboard/AdminAllPage/Orders/Orders'
 import AllUsersAdmin from '../Components/Dashboard/AdminAllPage/AllUsersAdmin/AllUsersAdmin'
 import ElectricalCart from '../Pages/Cart/ElectricalCart'
+import ElectricalContact from '../Pages/ElectricalOters/ElectricalContact'
+import ElectricalAllProducts from '../Pages/ElectricalHome/ElectricalAllProducts'
+import ElectricalAbout from '../Pages/ElectricalOters/ElectricalAbout'
 
 const router = createBrowserRouter([
   {
@@ -47,6 +50,18 @@ const router = createBrowserRouter([
       {
         path: '/signup',
         element: <Signup />,
+      },
+      {
+        path: '/contact',
+        element: <ElectricalContact />,
+      },
+      {
+        path: '/allProducts',
+        element: <ElectricalAllProducts />,
+      },
+      {
+        path: '/about',
+        element: <ElectricalAbout />,
       },
       {
         path: '/cart',

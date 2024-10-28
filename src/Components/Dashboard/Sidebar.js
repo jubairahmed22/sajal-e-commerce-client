@@ -33,7 +33,7 @@ const Sidebar = ({ role, loading }) => {
         <button className="text-black lg:hidden" onClick={toggleSidebar}>
           open modal
         </button>
-      </div> */}
+      </div>
       {/* Sidebar */}
       <div className={`sidebar ${isSidebarOpen ? "open" : ""}`}>
         <div className="flex justify-center gap-5 items-start flex-col px-5 py-10">
@@ -52,6 +52,8 @@ const Sidebar = ({ role, loading }) => {
               <Link to="/"></Link>
             </h2>
             <div className="flex flex-col items-center mt-6 -mx-2">
+              <Link to="/">              <h1 className="text-center text-3xl font-courierPrime font-bold my-4">SAGOR</h1>
+              </Link>
               {/* <Link to='/dashboard'>
                 <img
                   className='object-cover w-24 h-24 mx-2 rounded-full'

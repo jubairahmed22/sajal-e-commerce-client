@@ -1,10 +1,11 @@
-import { Elements } from "@stripe/react-stripe-js";
-import { loadStripe } from "@stripe/stripe-js";
 import React, { useState, useEffect } from "react";
-import CheckoutForm from "./CheckoutForm";
 
 const ElectricalCart = () => {
   const [cart, setCart] = useState([]);
+  const [name, setName] = useState("");
+  const [address, setAddress] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
+  const [shope, setShope] = useState("");
 
   useEffect(() => {
     // Load cart from localStorage when component mounts
@@ -52,15 +53,37 @@ const ElectricalCart = () => {
     );
   };
 
-  // TODO: ADD PUBLISHABLE KEY
-  const stripePromise = loadStripe(
-    "pk_test_51M95efHKtD2PGvOuiKU700FfXCTPrQ3080hQT7DTNIT0t43MvJL3YqoLLpvNz4C4KwzN3E9V3SDDdIzubSACERWG00482N2iu5"
-  );
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    const paymentData = {
+      name,
+      address,
+      phoneNumber,
+      shope,
+      products: cart.map((item) => ({
+        title: item.title,
+        quantity: item.quantity,
+      })),
+      totalPrice: calculateTotalPrice(),
+    };
+
+    // Call your backend to save the payment details
+    const response = await fetch("http://localhost:8000/save-payment", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(paymentData),
+    });
+
+    if (response.ok) {
+      alert("Payment details saved successfully!");
+    } else {
+      alert("Failed to save payment details.");
+    }
+  };
 
   return (
-    <div className="p-4">
-    
-
+    <div>
       {/* Display total price */}
 
       <section class="bg-white py-8 antialiased dark:bg-gray-900 md:py-16">
@@ -91,11 +114,16 @@ const ElectricalCart = () => {
                               alt="imac image"
                             />
                           </a>
+                          <a href="#" class="shrink-0 md:order-1">
+                           <p class="text-base font-extralight text-gray-800 dark:text-white">
+                              Price: {item.sellingPrice}
+                              </p>
+                          </a>
 
                           <label for="counter-input" class="sr-only">
                             Choose quantity:
                           </label>
-                          <div class="flex items-center justify-between md:order-3 md:justify-end">
+                          <div class="flex items-center justify-between md:order-2 md:justify-end">
                             <div class="flex items-center">
                               <button
                                 onClick={() => decrementQuantity(item)}
@@ -150,18 +178,18 @@ const ElectricalCart = () => {
                             </div>
                             <div class="text-end md:order-4 md:w-32">
                               <p class="text-base font-bold text-gray-900 dark:text-white">
-                                $ {item.sellingPrice} x {item.quantity} ={" "}
-                                {item.sellingPrice * item.quantity}
+                                {/* {item.sellingPrice} x {item.quantity} ={" "} */}
+                                Total : {item.sellingPrice * item.quantity} tk
                               </p>
                             </div>
                           </div>
 
-                          <div class="w-full min-w-0 flex-1 space-y-4 md:order-2 md:max-w-md">
+                          <div class="w-full min-w-0 flex-1 space-y-4 md:order-5 md:max-w-md">
                             <a
                               href="#"
-                              class="text-base font-medium text-gray-900 hover:underline dark:text-white"
+                              class="text-base font-medium text-gray-900 hover:underline dark:text-white "
                             >
-                              {item.title}
+                              {item.title} 
                             </a>
 
                             <div class="flex items-center gap-4">
@@ -199,23 +227,104 @@ const ElectricalCart = () => {
               </ul>
             )}
 
-            <div class="mx-auto mt-6 max-w-4xl flex-1 space-y-6 lg:mt-0 lg:w-full">
+            <div class="mx-auto mt-6 max-w-4xl flex-1 space-y-6 lg:mt-0 lg:w-full w-[40%]">
               <div class="space-y-4 rounded-lg border border-gray-200 bg-white p-4 shadow-sm dark:border-gray-700 dark:bg-gray-800 sm:p-6">
                 <p class="text-xl font-semibold text-gray-900 dark:text-white">
                   Order summary
                 </p>
 
                 <div class="space-y-4">
-                  <dl class="flex items-center justify-between gap-4 border-t border-gray-200 pt-2 dark:border-gray-700">
-                    <dt class="text-base font-bold text-gray-900 dark:text-white">
-                      Total
-                    </dt>
+                  <dl class=" border-t border-gray-200 pt-2 dark:border-gray-700">
+                    <form onSubmit={handleSubmit}>
+                      <div class="mb-6">
+                        <label
+                          for="name"
+                          class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                        >
+                          Name
+                        </label>
+                        <input
+                          type="text"
+                          id="name"
+                          value={name}
+                          onChange={(e) => setName(e.target.value)}
+                          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block lg:w-[50%] md:w-full sm:w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                          placeholder="Type..."
+                          required
+                        />
+                      </div>
+                      
+                      <div class="mb-6">
+                        <label
+                          for="phone"
+                          class="block mb-2 text-sm font-medium text-gray-900 dark:text-white "
+                        >
+                          Phone number
+                        </label>
 
-                    {cart.length > 0 && (
-                      <dd class="text-base font-bold text-gray-900 dark:text-white">
-                        ${calculateTotalPrice()}
-                      </dd>
-                    )}
+                        <input
+                          value={phoneNumber}
+                          onChange={(e) => setPhoneNumber(e.target.value)}
+                          type="tel"
+                          id="phone"
+                          class="bg-gray-50 border border-gray-300 lg:w-[50%] md:w-full sm:w-full text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                          placeholder="162 996 4630"
+                          required
+                        />
+                      </div>
+                      <div class="mb-6">
+                        <label
+                          for="shope"
+                          class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                        >
+                          Shope Name
+                        </label>
+                        <input
+                          type="text"
+                          id="shope"
+                          value={shope}
+                          onChange={(e) => setShope(e.target.value)}
+                          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                          placeholder="Type..."
+                          required
+                        />
+                      </div>
+                      <div class="mb-6">
+                        <label
+                          for="address"
+                          class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                        >
+                          Address
+                        </label>
+                        <textarea  value={address}
+                          onChange={(e) => setAddress(e.target.value)}
+                           id="address" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Write your thoughts here..."></textarea>
+
+                        {/* <input
+                          type="text"
+                          id="address"
+                          value={address}
+                          onChange={(e) => setAddress(e.target.value)}
+                          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                          placeholder="Type..."
+                          required
+                        /> */}
+                      </div>
+                      
+
+                      {cart.length > 0 && (
+                        <dd class="font-bold text-gray-600 dark:text-white mb-6 text-3xl">
+                          Total <span className="text-gray-900">${calculateTotalPrice()}</span>
+                        </dd>
+                      )}
+
+                      <button
+                        type="submit"
+                        class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                      >
+                        Submit
+                      </button>
+                    </form>
                   </dl>
                 </div>
 
@@ -252,7 +361,8 @@ const ElectricalCart = () => {
           </div>
         </div>
       </section>
-   
+
+      
     </div>
   );
 };

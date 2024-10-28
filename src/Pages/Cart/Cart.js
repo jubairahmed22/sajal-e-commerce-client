@@ -54,6 +54,8 @@ const Cart = () => {
   // TODO: ADD PUBLISHABLE KEY
   const stripePromise = loadStripe('pk_test_51M95efHKtD2PGvOuiKU700FfXCTPrQ3080hQT7DTNIT0t43MvJL3YqoLLpvNz4C4KwzN3E9V3SDDdIzubSACERWG00482N2iu5')
 
+
+  
   return (
     <div className="p-4">
       <h2 className="text-lg font-bold mb-4">Cart</h2>

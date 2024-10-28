@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link, useNavigate, useSearchParams } from "react-router-dom";
+import toast from "react-hot-toast";
 
 const ElectricalAllProducts = () => {
   const [products, setProducts] = useState([]);
@@ -111,8 +112,9 @@ const ElectricalAllProducts = () => {
 
     localStorage.setItem("cart", JSON.stringify(updatedCart)); // Save updated cart in localStorage
     setCart(updatedCart); // Update cart state
-    alert(`${product.title} has been added to the cart!`);
-  };
+    toast.success(`${product.title} has been added to the cart! View Cart`, {
+      position: "bottom-right",
+    });  };
 
   // Handle page navigation
   const handleNextPage = () => {
