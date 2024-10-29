@@ -38,7 +38,7 @@ const Navbar = () => {
   const isActive = (path) => location.pathname === path;
 
   return (
-    <div>
+    <div className="sticky top-0">
     <nav class="  bg-white dark:bg-gray-900 sticky w-full z-20 top-0 start-0 border-b border-gray-200 dark:border-gray-600">
       <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
         <Link to="/" class="flex items-center space-x-3 rtl:space-x-reverse">
@@ -58,8 +58,14 @@ const Navbar = () => {
             to="/dashboard"
             class="text-white bg-blue-500 hover:bg-blue-600 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
           >
-            Dashboard
+            DASHBOARD
           </Link>
+          <button
+onClick={logout}
+class="text-black bg-blue-100 hover:bg-blue-100 focus:ring-4 focus:outline-none focus:ring-blue-600 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+          >
+            LOG OUT
+          </button>
          
         </div>
         :
@@ -95,7 +101,7 @@ const Navbar = () => {
                 } hover:bg-gray-100 lg:hover:bg-transparent lg:border-0 lg:p-0 dark:text-white lg:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent`}
                 aria-current="page"
               >
-                Home
+                HOME
               </Link>
             </li>
         
@@ -108,7 +114,7 @@ const Navbar = () => {
                     : "text-gray-900 lg:hover:text-blue-700"
                 } hover:bg-gray-100 lg:hover:bg-transparent lg:border-0 lg:p-0 dark:text-white lg:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent`}
               >
-                Contact
+                CONTACT
               </Link>
             </li>
             <li>
@@ -120,7 +126,7 @@ const Navbar = () => {
                     : "text-gray-900 lg:hover:text-blue-700"
                 } hover:bg-gray-100 lg:hover:bg-transparent lg:border-0 lg:p-0 dark:text-white lg:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent`}
               >
-                About
+                ABOUT
               </Link>
             </li>
             <li>
@@ -132,7 +138,7 @@ const Navbar = () => {
                     : "text-gray-900 lg:hover:text-blue-700"
                 } hover:bg-gray-100 lg:hover:bg-transparent lg:border-0 lg:p-0 dark:text-white lg:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent`}
               >
-                Cart <span className="font-bold">{cart.length}</span>
+                CART <span className="font-bold">{cart.length}</span>
               </Link>
             </li>
           </ul>

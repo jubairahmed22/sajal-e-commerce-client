@@ -314,7 +314,7 @@ const ElectricalCart = () => {
 
                       {cart.length > 0 && (
                         <dd class="font-bold text-gray-600 dark:text-white mb-6 text-3xl">
-                          Total <span className="text-gray-900">${calculateTotalPrice()}</span>
+                          Total <span className="text-gray-900">{calculateTotalPrice()} Tk</span>
                         </dd>
                       )}
 
