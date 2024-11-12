@@ -6,7 +6,7 @@ const AdminMenu = () => {
   return (
     <>
     
-      <NavLink
+      {/* <NavLink
         to="admin-dashboard"
         className={({ isActive }) =>
           `flex items-center px-4 py-2 mt-5  transition-colors duration-300 transform   hover:bg-gray-300   hover:text-gray-900 ${
@@ -17,7 +17,7 @@ const AdminMenu = () => {
         }a
       >
         <span className="mx-4 font-medium">Dashboard</span>
-      </NavLink>
+      </NavLink> */}
       <NavLink
         to="my-product"
         className={({ isActive }) =>
@@ -54,7 +54,7 @@ const AdminMenu = () => {
       >
         <span className="mx-4 font-medium">Orders</span>
       </NavLink>
-      <NavLink
+      {/* <NavLink
         to="all-users"
         className={({ isActive }) =>
           `flex items-center px-4 py-2 mt-5  transition-colors duration-300 transform   hover:bg-gray-300   hover:text-gray-900 ${
@@ -65,7 +65,7 @@ const AdminMenu = () => {
         }
       >
         <span className="mx-4 font-medium">All Users</span>
-      </NavLink>
+      </NavLink> */}
     </>
   );
 };

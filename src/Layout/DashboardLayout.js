@@ -3,6 +3,7 @@ import { Outlet } from 'react-router-dom'
 import { getRole } from '../api/user'
 import Sidebar from '../Components/Dashboard/Sidebar'
 import { AuthContext } from '../contexts/AuthProvider'
+import DashNav from '../Components/DashNav'
 
 const DashboardLayout = () => {
   const { user } = useContext(AuthContext)
@@ -23,6 +24,7 @@ const DashboardLayout = () => {
         <>
           <div className='flex flex-row '>
           <div className='lg:w-[300px] md:w-[300px] sm:w-[1px] sticky top-0'>
+          <DashNav></DashNav>
           <Sidebar role={role} />
           </div>
           <div className='w-full '>

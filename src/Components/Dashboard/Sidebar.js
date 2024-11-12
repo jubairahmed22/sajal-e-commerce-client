@@ -44,7 +44,7 @@ const Sidebar = ({ role, loading }) => {
         className={`overlay ${isSidebarOpen ? "active" : ""}`}
         onClick={toggleSidebar}
       ></div>
-      <div className="z-10 sticky top-0 h-full  border-r border-gray-200 shadow-sm sm:hidden md:fixed flex flex-col justify-between overflow-x-hidden bg-white w-64 space-y-6 px-2 py-4 inset-y-0 left-0 transform">
+      <div className="z-10 sticky top-0 h-screen  border-r border-gray-200 shadow-sm sm:hidden md:fixed flex flex-col justify-between overflow-x-hidden bg-white w-64 space-y-6 px-2 py-4 inset-y-0 left-0 transform">
         <div className=" ">
           {/* Branding & Profile Info */}
           <div>

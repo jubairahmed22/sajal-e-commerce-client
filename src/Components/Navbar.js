@@ -39,6 +39,7 @@ const Navbar = () => {
 
   return (
     <div className="sticky top-0">
+    <div className="">
     <nav class="  bg-white dark:bg-gray-900 sticky w-full z-20 top-0 start-0 border-b border-gray-200 dark:border-gray-600">
       <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
         <Link to="/" class="flex items-center space-x-3 rtl:space-x-reverse">
@@ -145,143 +146,15 @@ class="text-black bg-blue-100 hover:bg-blue-100 focus:ring-4 focus:outline-none 
         </div>
       </div>
     </nav>
-      <div class="lg:hidden md:hidden fixed z-50 w-full h-16 max-w-lg -translate-x-1/2 bg-white border border-gray-200 rounded-full bottom-4 left-1/2 dark:bg-gray-700 dark:border-gray-600">
-        <div class="grid h-full max-w-lg grid-cols-5 mx-auto">
-          <button
-            data-tooltip-target="tooltip-home"
-            type="button"
-            class="inline-flex flex-col items-center justify-center px-5 rounded-s-full hover:bg-gray-50 dark:hover:bg-gray-800 group"
-          >
-            <svg
-              class="w-5 h-5 mb-1 text-gray-500 dark:text-gray-400 group-hover:text-blue-600 dark:group-hover:text-blue-500"
-              aria-hidden="true"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="currentColor"
-              viewBox="0 0 20 20"
-            >
-              <path d="m19.707 9.293-2-2-7-7a1 1 0 0 0-1.414 0l-7 7-2 2a1 1 0 0 0 1.414 1.414L2 10.414V18a2 2 0 0 0 2 2h3a1 1 0 0 0 1-1v-4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v4a1 1 0 0 0 1 1h3a2 2 0 0 0 2-2v-7.586l.293.293a1 1 0 0 0 1.414-1.414Z" />
-            </svg>
-            <span class="sr-only">Home</span>
-          </button>
-          <div
-            id="tooltip-home"
-            role="tooltip"
-            class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700"
-          >
-            Home
-            <div class="tooltip-arrow" data-popper-arrow></div>
-          </div>
-          <button
-            data-tooltip-target="tooltip-wallet"
-            type="button"
-            class="inline-flex flex-col items-center justify-center px-5 hover:bg-gray-50 dark:hover:bg-gray-800 group"
-          >
-            <svg
-              class="w-5 h-5 mb-1 text-gray-500 dark:text-gray-400 group-hover:text-blue-600 dark:group-hover:text-blue-500"
-              aria-hidden="true"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="currentColor"
-              viewBox="0 0 20 20"
-            >
-              <path d="M11.074 4 8.442.408A.95.95 0 0 0 7.014.254L2.926 4h8.148ZM9 13v-1a4 4 0 0 1 4-4h6V6a1 1 0 0 0-1-1H1a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h17a1 1 0 0 0 1-1v-2h-6a4 4 0 0 1-4-4Z" />
-              <path d="M19 10h-6a2 2 0 0 0-2 2v1a2 2 0 0 0 2 2h6a1 1 0 0 0 1-1v-3a1 1 0 0 0-1-1Zm-4.5 3.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2ZM12.62 4h2.78L12.539.41a1.086 1.086 0 1 0-1.7 1.352L12.62 4Z" />
-            </svg>
-            <span class="sr-only">Wallet</span>
-          </button>
-          <div
-            id="tooltip-wallet"
-            role="tooltip"
-            class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700"
-          >
-            Wallet
-            <div class="tooltip-arrow" data-popper-arrow></div>
-          </div>
-          <div class="flex items-center justify-center">
-            <button
-              data-tooltip-target="tooltip-new"
-              type="button"
-              class="inline-flex items-center justify-center w-10 h-10 font-medium bg-blue-600 rounded-full hover:bg-blue-700 group focus:ring-4 focus:ring-blue-300 focus:outline-none dark:focus:ring-blue-800"
-            >
-              <svg
-                class="w-4 h-4 text-white"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 18 18"
-              >
-                <path
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M9 1v16M1 9h16"
-                />
-              </svg>
-              <span class="sr-only">New item</span>
-            </button>
-          </div>
-          <div
-            id="tooltip-new"
-            role="tooltip"
-            class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700"
-          >
-            Create new item
-            <div class="tooltip-arrow" data-popper-arrow></div>
-          </div>
-          <button
-            data-tooltip-target="tooltip-settings"
-            type="button"
-            class="inline-flex flex-col items-center justify-center px-5 hover:bg-gray-50 dark:hover:bg-gray-800 group"
-          >
-            <svg
-              class="w-5 h-5 mb-1 text-gray-500 dark:text-gray-400 group-hover:text-blue-600 dark:group-hover:text-blue-500"
-              aria-hidden="true"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 20 20"
-            >
-              <path
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M4 12.25V1m0 11.25a2.25 2.25 0 0 0 0 4.5m0-4.5a2.25 2.25 0 0 1 0 4.5M4 19v-2.25m6-13.5V1m0 2.25a2.25 2.25 0 0 0 0 4.5m0-4.5a2.25 2.25 0 0 1 0 4.5M10 19V7.75m6 4.5V1m0 11.25a2.25 2.25 0 1 0 0 4.5 2.25 2.25 0 0 0 0-4.5ZM16 19v-2"
-              />
-            </svg>
-            <span class="sr-only">Settings</span>
-          </button>
-          <div
-            id="tooltip-settings"
-            role="tooltip"
-            class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700"
-          >
-            Settings
-            <div class="tooltip-arrow" data-popper-arrow></div>
-          </div>
-          <button
-            data-tooltip-target="tooltip-profile"
-            type="button"
-            class="inline-flex flex-col items-center justify-center px-5 rounded-e-full hover:bg-gray-50 dark:hover:bg-gray-800 group"
-          >
-            <svg
-              class="w-5 h-5 mb-1 text-gray-500 dark:text-gray-400 group-hover:text-blue-600 dark:group-hover:text-blue-500"
-              aria-hidden="true"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="currentColor"
-              viewBox="0 0 20 20"
-            >
-              <path d="M10 0a10 10 0 1 0 10 10A10.011 10.011 0 0 0 10 0Zm0 5a3 3 0 1 1 0 6 3 3 0 0 1 0-6Zm0 13a8.949 8.949 0 0 1-4.951-1.488A3.987 3.987 0 0 1 9 13h2a3.987 3.987 0 0 1 3.951 3.512A8.949 8.949 0 0 1 10 18Z" />
-            </svg>
-            <span class="sr-only">Profile</span>
-          </button>
-          <div
-            id="tooltip-profile"
-            role="tooltip"
-            class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700"
-          >
-            Profile
-            <div class="tooltip-arrow" data-popper-arrow></div>
-          </div>
+    </div>
+      <div class="lg:hidden md:hidden fixed z-50 w-full h-16 max-w-md -translate-x-1/2 bg-white border border-gray-400 rounded-full bottom-4 left-1/2 dark:bg-gray-700 dark:border-gray-600">
+        <div class="flex justify-center items-center gap-20 h-full max-w-lg   mx-auto">
+           <Link to="/">
+           <img alt="" className="w-10" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHdpZHRoPSI1MTIiIGhlaWdodD0iNTEyIiB4PSIwIiB5PSIwIiB2aWV3Qm94PSIwIDAgMy4wNDggMy4wNDgiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDUxMiA1MTIiIHhtbDpzcGFjZT0icHJlc2VydmUiIGZpbGwtcnVsZT0iZXZlbm9kZCIgY2xhc3M9IiI+PGc+PHBhdGggZD0iTTIuMTI4IDEuNjkzdi41NzFhLjA0LjA0IDAgMCAxLS4wNC4wNDFoLS4zN2EuMDQuMDQgMCAwIDEtLjA0LS4wNHYtLjMxMWEuMDQuMDQgMCAwIDAtLjA0Mi0uMDQxaC0uMjI0YS4wNC4wNCAwIDAgMC0uMDQxLjA0di4zMTFhLjA0LjA0IDAgMCAxLS4wNC4wNDFILjk2YS4wNC4wNCAwIDAgMS0uMDQtLjA0di0uNTcySC45MmwuMzAxLS4zMDYuMjcyLS4yNzdhLjA0LjA0IDAgMCAxIC4wMy0uMDEyLjA0LjA0IDAgMCAxIC4wMjguMDEybC4yNzIuMjc3eiIgZmlsbD0iIzAwMDAwMCIgb3BhY2l0eT0iMSIgZGF0YS1vcmlnaW5hbD0iIzAwMDAwMCIgY2xhc3M9IiI+PC9wYXRoPjxwYXRoIGQ9Im0xLjU4Mi43NjcuNDIyLjQyOS4zNDMuMzQ5YS4wOC4wOCAwIDAgMSAuMDE3LjA4OS4wOC4wOCAwIDAgMS0uMDc1LjA1aC0uMDAyYS4wNzkuMDc5IDAgMCAxLS4wNTgtLjAyNWwtLjM0Mi0uMzQ3TDEuNTguOTk5QzEuNTY0Ljk4MyAxLjU0NC45NzUgMS41MjIuOTc1cy0uMDQzLjAwOC0uMDU5LjAyNGwtLjMwNy4zMTMtLjM0MS4zNDdhLjA4LjA4IDAgMCAxLS4wNTcuMDIzLjA4LjA4IDAgMCAxLS4wNTItLjE0MmwuMzM4LS4zNDQuNDIyLS40MjlhLjA3OS4wNzkgMCAwIDEgLjA1OC0uMDI0Yy4wMjMgMCAuMDQyLjAwOC4wNTguMDI0eiIgZmlsbD0iIzAwMDAwMCIgb3BhY2l0eT0iMSIgZGF0YS1vcmlnaW5hbD0iIzAwMDAwMCIgY2xhc3M9IiI+PC9wYXRoPjxwYXRoIGZpbGwtcnVsZT0ibm9uemVybyIgZD0iTTEuNTI0IDBhMS41MiAxLjUyIDAgMCAxIDEuNTI0IDEuNTI0IDEuNTIgMS41MiAwIDAgMS0xLjUyNCAxLjUyNEExLjUyIDEuNTIgMCAwIDEgMCAxLjUyNCAxLjUyIDEuNTIgMCAwIDEgMS41MjQgMHptLjg5OC42MjZhMS4yNjYgMS4yNjYgMCAwIDAtMS43OTYgMCAxLjI2NiAxLjI2NiAwIDAgMCAwIDEuNzk2IDEuMjY2IDEuMjY2IDAgMCAwIDEuNzk2IDAgMS4yNjYgMS4yNjYgMCAwIDAgMC0xLjc5NnoiIGZpbGw9IiMwMDAwMDAiIG9wYWNpdHk9IjEiIGRhdGEtb3JpZ2luYWw9IiMwMDAwMDAiIGNsYXNzPSIiPjwvcGF0aD48L2c+PC9zdmc+" />           </Link>
+           <Link to="/cart" className="flex flex-row gap-1 text-md font-semibold font-jost">
+           <img alt="" className="w-10" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHdpZHRoPSI1MTIiIGhlaWdodD0iNTEyIiB4PSIwIiB5PSIwIiB2aWV3Qm94PSIwIDAgNTEyIDUxMiIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgNTEyIDUxMiIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+PGc+PHBhdGggZD0iTTUwMC40MTIgMTAzLjcwMkExNS4wMDEgMTUuMDAxIDAgMCAwIDQ4OSA5OC40MzZIMTQyLjYxNkwxNDAuMiA3OS45NjdjLTIuMjI5LTE3LjAwNC0xMC40OTctMzIuNTQ2LTIzLjI4MS00My43NjMtMTIuNzgzLTExLjIxNC0yOS4yNjYtMTcuMzkxLTQ2LjQxMi0xNy4zOTFIMjNjLTguMjg0IDAtMTUgNi43MTYtMTUgMTVzNi43MTYgMTUgMTUgMTVoNDcuNTA3YzIwLjQ4NSAwIDM3LjI4NiAxNC43NDEgMzkuOTQ3IDM1LjA0OGwzMS45MjMgMjQ0LjA2LS45ODIuMDg1Yy0yNi41MjcgMi4zMjMtNDYuMzggMjQuOTY3LTQ1LjE5OCA1MS41MjkgMS4xNDMgMjYuNTgzIDIyLjg3MSA0Ny4zNzkgNDkuNDg1IDQ3LjM3OWguMDc4bDE1LjU5LS4wMjVhNDcuODgzIDQ3Ljg4MyAwIDAgMC0zLjU0NCAxOC4xMDRjMCAyNi41NzMgMjEuNjA2IDQ4LjE5MiA0OC4xNjQgNDguMTkyczQ4LjE5Mi0yMS42MTkgNDguMTkyLTQ4LjE5MmE0Ny44NjcgNDcuODY3IDAgMCAwLTMuNjAzLTE4LjI0OGw5Ni4xNjctLjE1NWE0Ny44NjYgNDcuODY2IDAgMCAwLTMuNTQxIDE4LjA5MmMwIDI2LjU3NCAyMS42MTkgNDguMTkzIDQ4LjE5MiA0OC4xOTNzNDguMTY0LTIxLjYxOSA0OC4xNjQtNDguMTkzLTIxLjYwNi00OC4xNjQtNDguMTY0LTQ4LjE2NGgtLjAyNGwtMjQ1LjY0MS4zOTZoLS4wMzFhMTkuNDc4IDE5LjQ3OCAwIDAgMS0xOS41MTQtMTguNjg5Yy0uNDY3LTEwLjQ4NSA3LjM3MS0xOS40MTYgMTcuODMxLTIwLjMzMmwyODAuMzg5LTI0LjMyYzI3LjA2NS0yLjMzOCA0OC4xMzktMjEuOTM3IDUyLjQzOS00OC43NzZsMjYuOTg1LTE2OC45OTZhMTUuMDA2IDE1LjAwNiAwIDAgMC0zLjQtMTIuMXpNMjA1Ljk3IDQ2My4xODZjLTEwLjAxNiAwLTE4LjE2NC04LjE2MS0xOC4xNjQtMTguMTkyczguMTQ4LTE4LjE2NSAxOC4xNjQtMTguMTY1IDE4LjE5MiA4LjE0OCAxOC4xOTIgMTguMTY1LTguMTYxIDE4LjE5Mi0xOC4xOTIgMTguMTkyem0yMDMuNTcyLTE4LjUwNGMwIDEwLjAzMi04LjE0OCAxOC4xOTMtMTguMTY0IDE4LjE5M3MtMTguMTkyLTguMTYxLTE4LjE5Mi0xOC4xOTMgOC4xNjEtMTguMTY0IDE4LjE5MS0xOC4xNjRoLjAwMmMxMC4wMTUgMCAxOC4xNjMgOC4xNDkgMTguMTYzIDE4LjE2NHpNMjI5LjExNCAyODEuMDM5Yy0uNDc3LjA0NS0uOTUxLjA2Ny0xLjQyMS4wNjctNy42NTIgMC0xNC4xODctNS44MjctMTQuOTE3LTEzLjU5OGwtOS40MS0xMDAuMTQ1Yy0uNzc0LTguMjQ4IDUuMjgzLTE1LjU2MiAxMy41MzEtMTYuMzM3IDguMjM4LS43NzQgMTUuNTYyIDUuMjgzIDE2LjMzOCAxMy41MzFsOS40MSAxMDAuMTQ1Yy43NzQgOC4yNDgtNS4yODMgMTUuNTYyLTEzLjUzMSAxNi4zMzd6bTk1LjgyNy0xNC45MzRjMCA4LjI4NC02LjcxNiAxNS0xNSAxNXMtMTUtNi43MTYtMTUtMTVWMTY1Ljk2YzAtOC4yODQgNi43MTYtMTUgMTUtMTVzMTUgNi43MTYgMTUgMTV6bTkxLjU3NC05OC43MzctOS40MzggMTAwLjE0NWMtLjczMiA3Ljc2OS03LjI2NyAxMy41OTMtMTQuOTE2IDEzLjU5My0uNDcyIDAtLjk0Ni0uMDIyLTEuNDI1LS4wNjctOC4yNDgtLjc3Ny0xNC4zMDQtOC4wOTMtMTMuNTI2LTE2LjM0MWw5LjQzOC0xMDAuMTQ1Yy43NzYtOC4yNDggOC4wOTUtMTQuMzEyIDE2LjM0MS0xMy41MjYgOC4yNDguNzc3IDE0LjMwNCA4LjA5MyAxMy41MjYgMTYuMzQxeiIgZmlsbD0iIzAwMDAwMCIgb3BhY2l0eT0iMSIgZGF0YS1vcmlnaW5hbD0iIzAwMDAwMCI+PC9wYXRoPjwvZz48L3N2Zz4=" />
+           <h1>{cart.length}</h1>
+           </Link>
         </div>
       </div>
     </div>

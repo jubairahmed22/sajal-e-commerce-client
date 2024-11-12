@@ -164,11 +164,11 @@ const ElectricalAllProducts = () => {
       <div className="p-5">
         {/* Search Form */}
         <form
-          className="grid grid-cols-4 gap-5 mt-10  bg-gradient-to-r from-cyan-400 to-blue-900 p-5 rounded-xl"
+          className="grid lg:grid-cols-4 sm:grid-cols-2 gap-5 lg:mt-10 sm:mt-1 shadow-xl p-5 rounded-xl"
           onSubmit={handleSearch}
         >
           <div className="flex flex-col gap-2 ">
-            <label className="text-lg font-roboto font-bold  text-white">
+            <label className="lg:text-lg sm:text-sm font-roboto lg:font-bold  text-gray-900">
               Product Name
             </label>
             <input
@@ -180,7 +180,7 @@ const ElectricalAllProducts = () => {
             />
           </div>
           <div className="flex flex-col gap-2">
-            <label className="text-lg font-roboto font-bold text-white">
+            <label className="lg:text-lg sm:text-sm font-roboto lg:font-bold text-gray-900">
               Product Id
             </label>
             <input
@@ -194,8 +194,8 @@ const ElectricalAllProducts = () => {
 
           {/* Category select */}
           <div className="flex flex-col">
-            <label className="text-lg  font-roboto font-bold text-white">
-            Product Category
+            <label className="lg:text-lg sm:text-sm font-roboto lg:font-bold text-gray-900">
+              Product Category
             </label>
             <select
               value={selectedCategory}
@@ -213,8 +213,8 @@ const ElectricalAllProducts = () => {
 
           {/* Company select */}
           <div className="flex flex-col">
-            <label className="text-lg font-roboto font-bold text-white">
-            Product Company
+            <label className="lg:text-lg sm:text-sm font-roboto lg:font-bold text-gray-900">
+              Product Company
             </label>
             <select
               value={selectedCompany}
@@ -258,7 +258,7 @@ const ElectricalAllProducts = () => {
               Search
             </button>
             <button
-              className="bg-gray-600 text-white px-4 py-1 rounded"
+              className="bg-gray-600 text-white font-roboto px-4 py-1 rounded"
               type="button"
               onClick={handleCancel}
             >
@@ -267,95 +267,96 @@ const ElectricalAllProducts = () => {
           </div>
         </form>
         <div className="rounded-2xl shadow-md border border-gray-50 px-4 pt-6 pb-4 mt-4">
-          <h1 className="my-3 font-roboto font-semibold text-xl">All products</h1>
-        <div class="grid grid-cols-4 gap-5   ">
-          {products.map((product) => (
-            <div class="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-              <a href="#">
-                <Link to={`/product-details/${product._id}`}>
-                  <img
-                    class="p-8 rounded-t-lg"
-                    src={product.singleImage}
-                    alt="product image"
-                  />
-                </Link>
-              </a>
-              <div class="px-5 pb-5">
+          <h1 className="my-3 font-roboto font-semibold text-xl">
+            All products
+          </h1>
+          <div class="grid lg:grid-cols-4 sm:grid-cols-2 lg:gap-5 sm:gap-2   ">
+            {products.map((product) => (
+              <div class="w-full max-w-sm bg-white border border-gray-50 hover:border-gray-400 duration-300 ease-in-out rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                 <a href="#">
-                  <h5 class="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
-                    {product.title}
-                  </h5>
+                  <Link to={`/product-details/${product._id}`}>
+                    <img
+                      class="lg:p-8 sm:p-2 rounded-t-lg"
+                      src={product.singleImage}
+                      alt="product image"
+                    />
+                  </Link>
                 </a>
+                <div class="px-5 pb-5">
+                  <a href="#">
+                    <h5 class="lg:text-xl sm:text-sm font-semibold tracking-tight text-gray-900 dark:text-white">
+                      {product.title}
+                    </h5>
+                  </a>
 
-                <div class="flex items-center justify-between mt-5">
-                  <span class="text-3xl font-bold text-gray-900 dark:text-white">
-                    {product.sellingPrice} Tk
-                  </span>
-                  <button
-                    onClick={() => addToCart(product)}
-                    href="#"
-                    class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-                  >
-                    Add to cart
-                  </button>
+                  <div class="flex lg:flex-row sm:flex-col lg:items-center sm:items-start justify-between lg:mt-5 sm:mt-2">
+                    <span class="lg:text-3xl sm:text-lg font-bold text-gray-900 dark:text-white sm:mb-2">
+                      {product.sellingPrice} Tk
+                    </span>
+                    <button
+                      onClick={() => addToCart(product)}
+                      href="#"
+                      class="text-white  bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm lg:px-5 sm:px-3 lg:py-2.5 sm:py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                    >
+                      Add to cart
+                    </button>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
-        </div>
-
-        <div>
-          <div class="flex my-4 items-center justify-center gap-5">
-            <button
-              onClick={handlePreviousPage}
-              disabled={currentPage === 1}
-              class="flex items-center justify-center px-3 h-8 me-3 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
-            >
-              <svg
-                class="w-3.5 h-3.5 me-2 rtl:rotate-180"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 14 10"
-              >
-                <path
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M13 5H1m0 0 4 4M1 5l4-4"
-                />
-              </svg>
-              Previous
-            </button>
-            <span className=" font-roboto font-semibold text-sm">
-              Page {currentPage} of {totalPages}
-            </span>
-            <button
-              onClick={handleNextPage}
-              disabled={currentPage === totalPages}
-              class="flex items-center justify-center px-3 h-8 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
-            >
-              Next
-              <svg
-                class="w-3.5 h-3.5 ms-2 rtl:rotate-180"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 14 10"
-              >
-                <path
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M1 5h12m0 0L9 1m4 4L9 9"
-                />
-              </svg>
-            </button>
-            
+            ))}
           </div>
-          {/* <button onClick={handlePreviousPage} disabled={currentPage === 1}>
+
+          <div>
+            <div class="flex my-4 items-center justify-center gap-5">
+              <button
+                onClick={handlePreviousPage}
+                disabled={currentPage === 1}
+                class="flex items-center justify-center px-3 h-8 me-3 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+              >
+                <svg
+                  class="w-3.5 h-3.5 me-2 rtl:rotate-180"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 14 10"
+                >
+                  <path
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M13 5H1m0 0 4 4M1 5l4-4"
+                  />
+                </svg>
+                Previous
+              </button>
+              <span className=" font-roboto font-semibold text-sm">
+                Page {currentPage} of {totalPages}
+              </span>
+              <button
+                onClick={handleNextPage}
+                disabled={currentPage === totalPages}
+                class="flex items-center justify-center px-3 h-8 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+              >
+                Next
+                <svg
+                  class="w-3.5 h-3.5 ms-2 rtl:rotate-180"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 14 10"
+                >
+                  <path
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M1 5h12m0 0L9 1m4 4L9 9"
+                  />
+                </svg>
+              </button>
+            </div>
+            {/* <button onClick={handlePreviousPage} disabled={currentPage === 1}>
             Previous
           </button>
           <span>
@@ -367,9 +368,8 @@ const ElectricalAllProducts = () => {
           >
             Next
           </button> */}
+          </div>
         </div>
-        </div>
-      
       </div>
     </div>
   );
