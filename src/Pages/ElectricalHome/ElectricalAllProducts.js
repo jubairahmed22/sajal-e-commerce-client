@@ -52,7 +52,7 @@ const ElectricalAllProducts = () => {
         setTotalSellingPrice(response.data.totalSellingPrice);
         setLoading(false)
       } catch (error) {
-        console.error("Error fetching products:", error);
+        console.error("Error fetching :", error);
       }
     };
 
