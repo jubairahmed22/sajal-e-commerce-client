@@ -24,7 +24,7 @@ const AddProductHome = () => {
     }
 
     try {
-      const response = await fetch("http://localhost:8000/upload-products", {
+      const response = await fetch("https://server-kappa-one-30.vercel.app/upload-products", {
         method: "POST",
         body: formData,
       });

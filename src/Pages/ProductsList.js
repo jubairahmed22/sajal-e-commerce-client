@@ -14,7 +14,7 @@ const ProductsList = () => {
     setCurrentPage(parseInt(page));
 
     // Fetch products from API
-    fetch(`http://localhost:8000/products?page=${page}&limit=5`)
+    fetch(`https://server-kappa-one-30.vercel.app/products?page=${page}&limit=5`)
       .then((res) => res.json())
       .then((data) => {
         setProducts(data.products); // Assuming your backend sends `products`

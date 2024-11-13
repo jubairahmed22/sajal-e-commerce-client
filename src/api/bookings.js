@@ -1,7 +1,7 @@
 // Get all bookings for a user by email
 export const getBookings = async email => {
   const response = await fetch(
-    `http://localhost:8000/bookings?email=${email}`,
+    `https://server-kappa-one-30.vercel.app/bookings?email=${email}`,
     {
       method: 'GET',
       headers: {
@@ -16,7 +16,7 @@ export const getBookings = async email => {
 
 // Get All bookings for admin
 export const getAllBookings = async () => {
-  const response = await fetch(`http://localhost:8000/bookings`, {
+  const response = await fetch(`https://server-kappa-one-30.vercel.app/bookings`, {
     method: 'GET',
     headers: {
       'content-type': 'application/json',
@@ -30,7 +30,7 @@ export const getAllBookings = async () => {
 // Delete a booking
 export const deleteBooking = async id => {
   const response = await fetch(
-    `http://localhost:8000/booking/${id}`,
+    `https://server-kappa-one-30.vercel.app/booking/${id}`,
     {
       method: 'DELETE',
       headers: {
@@ -48,7 +48,7 @@ export const deleteBooking = async id => {
 
 export const getPaymentIntent = async price => {
   const response = await fetch(
-    `http://localhost:8000/create-payment-intent`,
+    `https://server-kappa-one-30.vercel.app/create-payment-intent`,
     {
       method: 'POST',
       headers: {

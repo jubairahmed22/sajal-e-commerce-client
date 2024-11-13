@@ -23,7 +23,7 @@ const CheckoutForm = ({ cart }) => {
       const totalAmount = cart.reduce((total, item) => total + item.price * item.quantity, 0);
   
       // Call your backend to create a payment intent
-      const response = await fetch('http://localhost:8000/create-payment-intent', {
+      const response = await fetch('https://server-kappa-one-30.vercel.app/create-payment-intent', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ price: totalAmount }),
@@ -58,7 +58,7 @@ const CheckoutForm = ({ cart }) => {
           };
   
           // Call your backend to save the payment details
-          await fetch('http://localhost:8000/save-payment', {
+          await fetch('https://server-kappa-one-30.vercel.app/save-payment', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(paymentData),

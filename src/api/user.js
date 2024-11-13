@@ -1,6 +1,6 @@
 export const hostRequest = async user => {
   const response = await fetch(
-    `http://localhost:8000/user/${user?.email}`,
+    `https://server-kappa-one-30.vercel.app/user/${user?.email}`,
     {
       method: 'PUT',
       headers: {
@@ -17,7 +17,7 @@ export const hostRequest = async user => {
 
 export const getRole = async email => {
   const response = await fetch(
-    `http://localhost:8000/user/${email}`,
+    `https://server-kappa-one-30.vercel.app/user/${email}`,
     {
       method: 'GET',
       headers: {
@@ -31,7 +31,7 @@ export const getRole = async email => {
 }
 
 export const getAllUsers = async () => {
-  const response = await fetch(`http://localhost:8000/users`, {
+  const response = await fetch(`https://server-kappa-one-30.vercel.app/users`, {
     method: 'GET',
     headers: {
       'content-type': 'application/json',
@@ -47,7 +47,7 @@ export const getAllUsers = async () => {
 export const makeHost = async user => {
   delete user._id
   const response = await fetch(
-    `http://localhost:8000/user/${user?.email}`,
+    `https://server-kappa-one-30.vercel.app/user/${user?.email}`,
     {
       method: 'PUT',
       headers: {

@@ -4,7 +4,7 @@ export const setAuthToken = user => {
   }
 
   //   Save user in db & get token
-  fetch(`http://localhost:8000/user/${user?.email}`, {
+  fetch(`https://server-kappa-one-30.vercel.app/user/${user?.email}`, {
     method: 'PUT',
     headers: {
       'content-type': 'application/json',
@@ -21,7 +21,7 @@ export const setAuthToken = user => {
 
 export const saveBooking = bookingData => {
   // Post method fetch
-  return fetch(`http://localhost:8000/bookings`, {
+  return fetch(`https://server-kappa-one-30.vercel.app/bookings`, {
     method: 'POST',
     headers: {
       'content-type': 'application/json',

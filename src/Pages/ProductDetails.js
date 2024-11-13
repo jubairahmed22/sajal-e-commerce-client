@@ -16,7 +16,7 @@ const ProductDetails = () => {
       setLoading(true);
       try {
         const response = await fetch(
-          `http://localhost:8000/products/details/${id}`
+          `https://server-kappa-one-30.vercel.app/products/details/${id}`
         );
         const data = await response.json();
         setProduct(data);

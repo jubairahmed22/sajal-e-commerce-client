@@ -76,7 +76,7 @@ const router = createBrowserRouter([
         path: '/service-details/:id',
         element: <Details />,
         loader: ({ params }) =>
-          fetch(`http://localhost:8000/home/${params.id}`),
+          fetch(`https://server-kappa-one-30.vercel.app/home/${params.id}`),
       },
       {
         path: '/search-result',
@@ -88,7 +88,7 @@ const router = createBrowserRouter([
         loader: ({ request }) => {
           const url = new URL(request.url);
           const page = url.searchParams.get('page') || 1; // Get page from URL query params
-          return fetch(`http://localhost:8000/products?page=${page}&limit=5`);
+          return fetch(`https://server-kappa-one-30.vercel.app/products?page=${page}&limit=5`);
         },
       },
       
@@ -96,7 +96,7 @@ const router = createBrowserRouter([
         path: '/product-details/:id',  // Product details page route
         element: <ProductDetails />,
         loader: ({ params }) =>
-          fetch(`http://localhost:8000/products/${params.id}`),  // Fetch product details using ID
+          fetch(`https://server-kappa-one-30.vercel.app/products/${params.id}`),  // Fetch product details using ID
       },
  
     ],

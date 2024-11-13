@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import toast from "react-hot-toast";
+import SpinnerTailwind from "../../Components/Spinner/SpinnerTailwind";
 
 const ElectricalAllProducts = () => {
   const [products, setProducts] = useState([]);
@@ -24,6 +25,7 @@ const ElectricalAllProducts = () => {
   const navigate = useNavigate();
   const [currentPage, setCurrentPage] = useState(1);
   const [cart, setCart] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   // Fetch products based on page and search parameters
   useEffect(() => {
@@ -32,7 +34,7 @@ const ElectricalAllProducts = () => {
     const fetchProducts = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:8000/visitor/products",
+          "https://server-kappa-one-30.vercel.app/visitor/products",
           {
             params: {
               page,
@@ -48,6 +50,7 @@ const ElectricalAllProducts = () => {
         setTotalQuantity(response.data.totalQuantity);
         setTotalBuyingPrice(response.data.totalBuyingPrice);
         setTotalSellingPrice(response.data.totalSellingPrice);
+        setLoading(false)
       } catch (error) {
         console.error("Error fetching products:", error);
       }
@@ -67,7 +70,7 @@ const ElectricalAllProducts = () => {
   useEffect(() => {
     const fetchCategories = async () => {
       try {
-        const response = await axios.get("http://localhost:8000/category");
+        const response = await axios.get("https://server-kappa-one-30.vercel.app/category");
         setCategories(response.data);
       } catch (error) {
         console.error("Error fetching categories:", error);
@@ -76,7 +79,7 @@ const ElectricalAllProducts = () => {
 
     const fetchCompanies = async () => {
       try {
-        const response = await axios.get("http://localhost:8000/company");
+        const response = await axios.get("https://server-kappa-one-30.vercel.app/company");
         setCompanies(response.data);
       } catch (error) {
         console.error("Error fetching companies:", error);
@@ -158,7 +161,9 @@ const ElectricalAllProducts = () => {
 
   // Handle delete product
   // Handle delete product with warning confirmation
-
+  if (loading) {
+    return <SpinnerTailwind></SpinnerTailwind>; // Replace with your loader component or animation
+  }
   return (
     <div className="rounded-2xl max-w-screen-xl mx-auto">
       <div className="p-5">

@@ -6,6 +6,9 @@ const ElectricalCart = () => {
   const [address, setAddress] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
   const [shope, setShope] = useState("");
+  useEffect(() => {
+    window.scrollTo(0, 0); // Scrolls to the top of the page when component mounts
+  }, []); 
 
   useEffect(() => {
     // Load cart from localStorage when component mounts
@@ -69,7 +72,7 @@ const ElectricalCart = () => {
     };
 
     // Call your backend to save the payment details
-    const response = await fetch("http://localhost:8000/save-payment", {
+    const response = await fetch("https://server-kappa-one-30.vercel.app/save-payment", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(paymentData),

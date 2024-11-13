@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./myProduct.css";
+import SpinnerTailwind from "../../../Spinner/SpinnerTailwind";
 
 const PaginatedProducts = () => {
   const [products, setProducts] = useState([]);
@@ -19,13 +20,14 @@ const PaginatedProducts = () => {
   const [totalQuantity, setTotalQuantity] = useState(0);
   const [totalBuyingPrice, setTotalBuyingPrice] = useState(0);
   const [totalSellingPrice, setTotalSellingPrice] = useState(0);
+  const [loading, setLoading] = useState(true);
 
   // Fetch products based on page and search parameters
   useEffect(() => {
     const fetchProducts = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:8000/admin/products",
+          "https://server-kappa-one-30.vercel.app/admin/products",
           {
             params: {
               page,
@@ -41,6 +43,8 @@ const PaginatedProducts = () => {
         setTotalQuantity(response.data.totalQuantity);
         setTotalBuyingPrice(response.data.totalBuyingPrice);
         setTotalSellingPrice(response.data.totalSellingPrice);
+        setLoading(false);
+
       } catch (error) {
         console.error("Error fetching products:", error);
       }
@@ -53,7 +57,7 @@ const PaginatedProducts = () => {
   useEffect(() => {
     const fetchCategories = async () => {
       try {
-        const response = await axios.get("http://localhost:8000/category");
+        const response = await axios.get("https://server-kappa-one-30.vercel.app/category");
         setCategories(response.data);
       } catch (error) {
         console.error("Error fetching categories:", error);
@@ -62,7 +66,7 @@ const PaginatedProducts = () => {
 
     const fetchCompanies = async () => {
       try {
-        const response = await axios.get("http://localhost:8000/company");
+        const response = await axios.get("https://server-kappa-one-30.vercel.app/company");
         setCompanies(response.data);
       } catch (error) {
         console.error("Error fetching companies:", error);
@@ -114,7 +118,7 @@ const PaginatedProducts = () => {
 
     if (confirmDelete) {
       try {
-        await axios.delete(`http://localhost:8000/deleteProduct/${productId}`);
+        await axios.delete(`https://server-kappa-one-30.vercel.app/deleteProduct/${productId}`);
         // Filter out the deleted product from the state
         setProducts(products.filter((product) => product._id !== productId));
         alert("Product deleted successfully.");
@@ -125,9 +129,12 @@ const PaginatedProducts = () => {
     }
   };
 
+  if (loading) {
+    return <SpinnerTailwind></SpinnerTailwind>; // Replace with your loader component or animation
+  }
   return (
     <div className="">
-      <div className="py-6 px-5 w-full hidden-o bg-white border-b-2">
+      <div className="py-6 px-5 w-full bg-white border-b-2">
         <h1 className="text-xl font-roboto text-black font-bold">
           My Products
         </h1>
